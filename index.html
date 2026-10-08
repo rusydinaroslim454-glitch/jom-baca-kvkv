@@ -20,19 +20,19 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Jungle & Adventure Background */
+        /* Jungle & Adventure Theme Background */
         .bg-adventure {
             background: linear-gradient(180deg, #38bdf8 0%, #4ade80 40%, #16a34a 100%);
         }
 
-        /* High Contrast Card Containers */
+        /* MBPK High Contrast Card Container */
         .bg-jungle-card {
             background: #ffffff;
             border: 6px solid #15803d;
             box-shadow: 0 12px 0 #166534, 0 16px 25px rgba(0,0,0,0.25);
         }
 
-        /* Cartoon Tactile Buttons */
+        /* Cartoon Action Buttons */
         .btn-cartoon {
             transition: all 0.15s ease-out;
             box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
@@ -70,6 +70,7 @@
         .animate-shake { animation: shakeSoft 0.4s ease-in-out; }
         .animate-star { animation: starPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
 
+        /* Animated Dash Line for Map */
         .map-path-line {
             stroke-dasharray: 12, 12;
             animation: dashMove 25s linear infinite;
@@ -79,7 +80,7 @@
             to { stroke-dashoffset: -1000; }
         }
 
-        /* Print styles for Sijil Kejayaan */
+        /* Print styles for Certificate */
         @media print {
             body * { visibility: hidden; }
             #printable-certificate, #printable-certificate * { visibility: visible; }
@@ -99,6 +100,7 @@
 
     <!-- TOP HEADER / NAV BAR -->
     <header class="max-w-5xl mx-auto w-full flex items-center justify-between bg-white/95 backdrop-blur-md px-4 py-3 rounded-3xl border-4 border-amber-400 shadow-xl z-30 mb-2">
+        <!-- Student Info Badge -->
         <div class="flex items-center gap-3">
             <div class="text-3xl md:text-4xl animate-bounce">🎒</div>
             <div>
@@ -107,15 +109,18 @@
             </div>
         </div>
 
+        <!-- Level Indicator -->
         <div id="nav-level-badge" class="hidden sm:flex items-center bg-emerald-100 border-2 border-emerald-400 px-3 py-1 rounded-2xl text-emerald-800 font-extrabold text-sm">
             🟢 MUDAH
         </div>
 
+        <!-- Star Counter System -->
         <div class="flex items-center bg-amber-100 border-2 border-amber-400 rounded-2xl px-4 py-1.5 gap-2 shadow-inner">
             <span class="text-3xl md:text-4xl animate-wiggle">⭐</span>
             <span id="star-count-text" class="text-2xl md:text-3xl font-black text-amber-600">0 / 10</span>
         </div>
 
+        <!-- Speech Audio Toggle Button -->
         <button onclick="toggleAudioSpeech()" id="btn-speech-toggle" class="p-2 md:p-3 bg-cyan-100 hover:bg-cyan-200 border-2 border-cyan-500 rounded-2xl text-xl md:text-2xl btn-cartoon" title="Sora Pembaca">
             🔊
         </button>
@@ -134,12 +139,13 @@
                 JOM BACA KVKV BERSAMA DORA! 🎒
             </h1>
 
-            <!-- Dora Character Showcase Banner with SVG Graphics -->
+            <!-- Dora Character Showcase Banner with Pinterest External Links & Fallback SVG -->
             <div class="flex justify-center items-end gap-3 md:gap-6 my-2 py-3 px-2 bg-emerald-50 rounded-2xl w-full border-2 border-dashed border-emerald-300">
                 <!-- Dora Avatar -->
                 <div class="text-center animate-float">
                     <div class="w-16 h-16 md:w-24 md:h-24 mx-auto rounded-full bg-pink-200 border-4 border-pink-400 flex items-center justify-center overflow-hidden shadow-md">
-                        <svg class="w-12 h-12 md:w-16 md:h-16" viewBox="0 0 100 100">
+                        <img src="https://pin.it/hg5K7DLUW" alt="Dora" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')" onerror="this.remove(); document.getElementById('fallback-dora').classList.remove('hidden');">
+                        <svg id="fallback-dora" class="w-12 h-12 md:w-16 md:h-16" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="45" fill="#fbcfe8"/>
                             <path d="M 20 50 Q 50 15 80 50 Q 80 80 20 80 Z" fill="#7c2d12"/>
                             <circle cx="50" cy="52" r="28" fill="#fde047"/>
@@ -154,7 +160,8 @@
                 <!-- Boots Avatar -->
                 <div class="text-center animate-float" style="animation-delay: 0.4s;">
                     <div class="w-16 h-16 md:w-24 md:h-24 mx-auto rounded-full bg-red-200 border-4 border-red-400 flex items-center justify-center overflow-hidden shadow-md">
-                        <svg class="w-12 h-12 md:w-16 md:h-16" viewBox="0 0 100 100">
+                        <img src="https://pin.it/4s7uSlkTr" alt="Boots" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')" onerror="this.remove(); document.getElementById('fallback-boots').classList.remove('hidden');">
+                        <svg id="fallback-boots" class="w-12 h-12 md:w-16 md:h-16" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="45" fill="#fca5a5"/>
                             <circle cx="50" cy="48" r="30" fill="#60a5fa"/>
                             <circle cx="50" cy="52" r="22" fill="#fef08a"/>
@@ -169,7 +176,8 @@
                 <!-- Map Avatar -->
                 <div class="text-center animate-float" style="animation-delay: 0.8s;">
                     <div class="w-16 h-16 md:w-24 md:h-24 mx-auto rounded-full bg-amber-200 border-4 border-amber-400 flex items-center justify-center overflow-hidden shadow-md">
-                        <svg class="w-12 h-12 md:w-16 md:h-16" viewBox="0 0 100 100">
+                        <img src="https://pin.it/lJTzDuwxh" alt="Maps" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')" onerror="this.remove(); document.getElementById('fallback-map').classList.remove('hidden');">
+                        <svg id="fallback-map" class="w-12 h-12 md:w-16 md:h-16" viewBox="0 0 100 100">
                             <rect x="25" y="20" width="50" height="60" rx="10" fill="#fef08a" stroke="#d97706" stroke-width="4"/>
                             <circle cx="40" cy="42" r="3" fill="#000"/>
                             <circle cx="60" cy="42" r="3" fill="#000"/>
@@ -182,7 +190,8 @@
                 <!-- Swiper Avatar -->
                 <div class="text-center animate-float" style="animation-delay: 1.2s;">
                     <div class="w-16 h-16 md:w-24 md:h-24 mx-auto rounded-full bg-orange-200 border-4 border-orange-400 flex items-center justify-center overflow-hidden shadow-md">
-                        <svg class="w-12 h-12 md:w-16 md:h-16" viewBox="0 0 100 100">
+                        <img src="https://pin.it/4t1f3hT4h" alt="Swiper" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')" onerror="this.remove(); document.getElementById('fallback-swiper').classList.remove('hidden');">
+                        <svg id="fallback-swiper" class="w-12 h-12 md:w-16 md:h-16" viewBox="0 0 100 100">
                             <polygon points="20,25 35,50 15,60" fill="#ea580c"/>
                             <polygon points="80,25 65,50 85,60" fill="#ea580c"/>
                             <circle cx="50" cy="55" r="30" fill="#f97316"/>
@@ -196,7 +205,7 @@
                 </div>
             </div>
 
-            <!-- Student Profile Input -->
+            <!-- Student Profile Form Input -->
             <div class="w-full max-w-lg bg-amber-50 border-4 border-amber-300 rounded-3xl p-4 md:p-6 space-y-4 shadow-inner">
                 <h3 class="text-xl md:text-2xl font-black text-amber-900">📝 MAKLUMAT PELAJAR</h3>
                 
@@ -218,28 +227,30 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <button onclick="selectDifficulty('MUDAH')" id="btn-lvl-MUDAH" class="p-3 md:p-4 rounded-2xl border-4 border-emerald-600 bg-emerald-500 text-white font-black text-lg md:text-xl btn-cartoon text-center transition-all">
                         🟢 MUDAH
-                        <span class="block text-xs font-bold mt-1 opacity-90">10 Soalan + 3 Cabaran</span>
+                        <span class="block text-xs font-bold mt-1 opacity-90">10 Soalan KVKV + 3 Cabaran</span>
                     </button>
 
                     <button onclick="selectDifficulty('SEDERHANA')" id="btn-lvl-SEDERHANA" class="p-3 md:p-4 rounded-2xl border-4 border-amber-600 bg-amber-500 text-white font-black text-lg md:text-xl btn-cartoon text-center transition-all opacity-80">
                         🟡 SEDERHANA
-                        <span class="block text-xs font-bold mt-1 opacity-90">10 Soalan + 3 Cabaran</span>
+                        <span class="block text-xs font-bold mt-1 opacity-90">10 Soalan Suku Kata + 3 Cabaran</span>
                     </button>
 
                     <button onclick="selectDifficulty('SUSAH')" id="btn-lvl-SUSAH" class="p-3 md:p-4 rounded-2xl border-4 border-red-600 bg-red-500 text-white font-black text-lg md:text-xl btn-cartoon text-center transition-all opacity-80">
                         🔴 SUSAH
-                        <span class="block text-xs font-bold mt-1 opacity-90">10 Soalan + 3 Cabaran</span>
+                        <span class="block text-xs font-bold mt-1 opacity-90">10 Soalan Ayat + 3 Cabaran</span>
                     </button>
                 </div>
             </div>
 
+            <!-- Start Adventure Button -->
             <button onclick="startAdventure()" class="w-full max-w-lg bg-emerald-500 hover:bg-emerald-600 text-white font-black text-2xl md:text-4xl py-5 px-8 rounded-3xl border-b-8 border-emerald-800 btn-cartoon flex items-center justify-center gap-3">
                 <span>▶️</span> MULA PENGEMBARAAN!
             </button>
         </section>
 
-        <!-- SCREEN 2: ADVENTURE MAP (10 STOPS) -->
+        <!-- SCREEN 2: DUNIA PENGEMBARAAN & PETA (MAP WITH 10 STOPS) -->
         <section id="screen-map" class="w-full bg-jungle-card rounded-3xl p-4 md:p-6 text-center flex flex-col items-center justify-between space-y-4 hidden">
+            <!-- Map Top Info Header -->
             <div class="bg-amber-100 border-3 border-amber-400 p-3 rounded-2xl w-full flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <span class="text-3xl md:text-4xl">🗺️</span>
@@ -253,69 +264,105 @@
                 </button>
             </div>
 
-            <!-- Map Nodes Track -->
+            <!-- Interactive Map Path Graphics -->
             <div class="relative w-full bg-sky-100 rounded-3xl border-4 border-sky-300 p-4 min-h-[360px] md:min-h-[420px] flex flex-col justify-between overflow-hidden shadow-inner">
+                <!-- SVG Path Connecting 10 Nodes -->
                 <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 40 320 Q 150 180 250 300 T 500 200 T 750 300 T 900 120" fill="none" stroke="#f59e0b" stroke-width="8" class="map-path-line" />
+                    <path id="svg-map-line" d="M 40 320 Q 150 180 250 300 T 500 200 T 750 300 T 900 120" fill="none" stroke="#f59e0b" stroke-width="8" class="map-path-line" />
                 </svg>
 
+                <!-- 10 Map Stop Nodes Grid -->
                 <div class="relative z-10 grid grid-cols-5 gap-2 my-auto items-center">
+                    
+                    <!-- Stop 1: Rumah -->
                     <div id="stop-node-0" class="flex flex-col items-center transition-all duration-300">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-amber-400 border-4 border-amber-600 flex items-center justify-center text-xl md:text-3xl shadow-md">🏠</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-amber-400 border-4 border-amber-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            🏠
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">1.Rumah</span>
                     </div>
 
+                    <!-- Stop 2: Hutan -->
                     <div id="stop-node-1" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-emerald-400 border-4 border-emerald-600 flex items-center justify-center text-xl md:text-3xl shadow-md">🌳</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-emerald-400 border-4 border-emerald-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            🌳
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">2.Hutan</span>
                     </div>
 
+                    <!-- Stop 3: Sungai -->
                     <div id="stop-node-2" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-blue-400 border-4 border-blue-600 flex items-center justify-center text-xl md:text-3xl shadow-md">🌊</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-blue-400 border-4 border-blue-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            🌊
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">3.Sungai</span>
                     </div>
 
+                    <!-- Stop 4: Jambatan -->
                     <div id="stop-node-3" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-orange-400 border-4 border-orange-600 flex items-center justify-center text-xl md:text-3xl shadow-md">🌉</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-orange-400 border-4 border-orange-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            🌉
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">4.Jambatan</span>
                     </div>
 
+                    <!-- Stop 5: Pokok Besar -->
                     <div id="stop-node-4" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-green-500 border-4 border-green-700 flex items-center justify-center text-xl md:text-3xl shadow-md">🌲</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-green-500 border-4 border-green-700 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            🌲
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">5.Pokok</span>
                     </div>
 
+                    <!-- Stop 6: Bukit Ceria -->
                     <div id="stop-node-5" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale mt-4">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-lime-400 border-4 border-lime-600 flex items-center justify-center text-xl md:text-3xl shadow-md">⛰️</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-lime-400 border-4 border-lime-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            ⛰️
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">6.Bukit</span>
                     </div>
 
+                    <!-- Stop 7: Gua Pelangi -->
                     <div id="stop-node-6" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale mt-4">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-pink-400 border-4 border-pink-600 flex items-center justify-center text-xl md:text-3xl shadow-md">🌈</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-pink-400 border-4 border-pink-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            🌈
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">7.Gua</span>
                     </div>
 
+                    <!-- Stop 8: Taman Bunga -->
                     <div id="stop-node-7" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale mt-4">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-rose-400 border-4 border-rose-600 flex items-center justify-center text-xl md:text-3xl shadow-md">🌸</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-rose-400 border-4 border-rose-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            🌸
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">8.Taman</span>
                     </div>
 
+                    <!-- Stop 9: Air Terjun -->
                     <div id="stop-node-8" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale mt-4">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-cyan-400 border-4 border-cyan-600 flex items-center justify-center text-xl md:text-3xl shadow-md">💦</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-cyan-400 border-4 border-cyan-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            💦
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">9.Air Terjun</span>
                     </div>
 
+                    <!-- Stop 10: Istana -->
                     <div id="stop-node-9" class="flex flex-col items-center transition-all duration-300 opacity-50 grayscale mt-4">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-purple-400 border-4 border-purple-600 flex items-center justify-center text-xl md:text-3xl shadow-md">🏰</div>
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-purple-400 border-4 border-purple-600 flex items-center justify-center text-xl md:text-3xl shadow-md">
+                            🏰
+                        </div>
                         <span class="font-black text-[10px] md:text-xs text-slate-800 mt-1 bg-white/90 px-1.5 py-0.5 rounded-full border">10.Istana</span>
                     </div>
+
                 </div>
 
+                <!-- Animated Dora Map Character Marker -->
                 <div id="dora-map-marker" class="absolute z-20 text-4xl md:text-6xl transition-all duration-700 ease-in-out filter drop-shadow-lg" style="left: 5%; bottom: 20%;">
                     👧
                 </div>
             </div>
 
+            <!-- Action Button to Launch Current Question -->
             <button id="btn-continue-question" onclick="goToCurrentQuestion()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black text-2xl md:text-3xl py-4 px-6 rounded-2xl border-b-6 border-emerald-800 btn-cartoon flex items-center justify-center gap-3">
                 <span>➡️</span> MULA JAWAB SOALAN
             </button>
@@ -323,6 +370,8 @@
 
         <!-- SCREEN 3: SOALAN KVKV SECTION -->
         <section id="screen-question" class="w-full bg-jungle-card rounded-3xl p-4 md:p-6 text-center flex flex-col items-center space-y-4 hidden">
+            
+            <!-- MBPK Visual Instruction Toolbar -->
             <div class="w-full flex items-center justify-between bg-emerald-100 border-2 border-emerald-400 px-4 py-2 rounded-2xl">
                 <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-xs md:text-base">
                     <span>👁️ LIHAT</span> ➔ <span>👆 PILIH</span> ➔ <span>⭐ JAWAB</span>
@@ -332,24 +381,31 @@
                 </span>
             </div>
 
+            <!-- Question Card Area -->
             <div class="w-full bg-amber-50 rounded-3xl border-4 border-amber-300 p-4 md:p-6 flex flex-col items-center justify-center shadow-inner relative">
+                
+                <!-- Question Speaker Button -->
                 <button onclick="readQuestionAudio()" class="absolute top-3 right-3 bg-amber-200 hover:bg-amber-300 p-3 rounded-2xl border-2 border-amber-400 text-2xl btn-cartoon" title="Baca Soalan">
                     📢
                 </button>
 
+                <!-- Question Visual Emoji / Prompt Icon -->
                 <div id="q-emoji" class="text-7xl md:text-9xl my-2 animate-bounce hover:scale-110 transition-transform cursor-pointer flex items-center justify-center" onclick="readQuestionAudio()">
                     🍞
                 </div>
 
+                <!-- Question Prompt Text -->
                 <h2 id="q-prompt" class="text-2xl md:text-4xl font-black text-slate-800 tracking-wide mt-2">
                     Apakah perkataan ini?
                 </h2>
             </div>
 
+            <!-- Answer Options List (Giant MBPK Buttons) -->
             <div id="options-container" class="w-full grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 my-2">
-                <!-- Dynamic answer buttons injected here -->
+                <!-- Buttons injected dynamically by JS -->
             </div>
 
+            <!-- Feedback Banner (No "Salah" used!) -->
             <div id="feedback-box" class="w-full min-h-[70px] rounded-2xl border-4 p-3 flex items-center justify-between hidden transition-all">
                 <div class="flex items-center gap-3">
                     <span id="feedback-icon" class="text-3xl md:text-4xl">🎉</span>
@@ -362,39 +418,43 @@
                 </button>
             </div>
 
+            <!-- Next Question Action Button -->
             <button id="btn-next-question" onclick="handleQuestionCompleted()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-black text-2xl md:text-3xl py-4 px-6 rounded-2xl border-b-6 border-blue-800 btn-cartoon hidden flex items-center justify-center gap-3">
                 <span>➡️</span> TERUSKAN PENGEMBARAAN
             </button>
         </section>
 
-        <!-- SCREEN 4: CABARAN 1 - SWIPER -->
+        <!-- SCREEN 4: CABARAN 1 - "SWIPER, JANGAN MENCURI!" -->
         <section id="screen-challenge-swiper" class="w-full bg-orange-100 border-6 border-orange-500 rounded-3xl p-6 text-center flex flex-col items-center justify-center space-y-6 hidden relative shadow-2xl">
             <div class="bg-orange-500 text-white font-black px-6 py-2 rounded-full text-lg md:text-xl tracking-wider uppercase animate-pulse">
                 ⚠️ CABARAN 1: AWAS SWIPER!
             </div>
 
-            <div id="swiper-challenge-char" class="text-8xl md:text-9xl animate-wiggle my-2 transition-all duration-700">🦊</div>
+            <div id="swiper-challenge-char" class="text-8xl md:text-9xl animate-wiggle my-2 transition-all duration-700">
+                🦊
+            </div>
 
             <h2 id="swiper-challenge-title" class="text-2xl md:text-4xl font-black text-orange-900 leading-snug">
                 "Swiper cuba mengambil perkataan kamu!"
             </h2>
 
-            <p class="text-lg md:text-2xl font-bold text-orange-800">
+            <p id="swiper-challenge-desc" class="text-lg md:text-2xl font-bold text-orange-800">
                 Tekan butang di bawah untuk halang Swiper!
             </p>
 
+            <!-- Interactive Defense Button -->
             <button id="btn-swiper-tap" onclick="handleSwiperTap()" class="w-full max-w-lg bg-red-500 hover:bg-red-600 text-white font-black text-2xl md:text-4xl py-5 px-6 rounded-3xl border-b-8 border-red-800 btn-cartoon flex items-center justify-center gap-3 animate-bounce">
                 <span>🦊</span> SWIPER, JANGAN MENCURI! (<span id="swiper-tap-count">3</span>)
             </button>
         </section>
 
-        <!-- SCREEN 5: CABARAN 2 - RIVER STONES -->
+        <!-- SCREEN 5: CABARAN 2 - "LALUAN BATU SUNGAI" -->
         <section id="screen-challenge-river" class="w-full bg-blue-100 border-6 border-blue-500 rounded-3xl p-6 text-center flex flex-col items-center justify-center space-y-6 hidden shadow-2xl">
             <div class="bg-blue-600 text-white font-black px-6 py-2 rounded-full text-lg md:text-xl tracking-wider uppercase">
                 🌊 CABARAN 2: LALUAN BATU SUNGAI
             </div>
 
-            <h2 class="text-2xl md:text-3xl font-black text-blue-900">
+            <h2 id="river-challenge-title" class="text-2xl md:text-3xl font-black text-blue-900">
                 Pilih batu suku kata yang betul untuk Dora seberang sungai!
             </h2>
 
@@ -402,35 +462,41 @@
                 <span>👧</span> ➔ <span id="river-prompt-box">🪨 KA + ? = KAKI</span> ➔ <span>🌳</span>
             </div>
 
+            <!-- River Stone Syllable Choice Buttons -->
             <div id="river-stones-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-lg">
-                <!-- River options injected dynamically -->
+                <!-- Injected dynamically -->
             </div>
         </section>
 
-        <!-- SCREEN 6: CABARAN 3 - TREASURE KEYS -->
+        <!-- SCREEN 6: CABARAN 3 - "PETI HARTA KARUN DORA & BOOTS" -->
         <section id="screen-challenge-treasure" class="w-full bg-amber-100 border-6 border-amber-500 rounded-3xl p-6 text-center flex flex-col items-center justify-center space-y-6 hidden shadow-2xl">
             <div class="bg-amber-600 text-white font-black px-6 py-2 rounded-full text-lg md:text-xl tracking-wider uppercase">
                 🎁 CABARAN 3: PETI HARTA KARUN
             </div>
 
-            <div class="text-8xl md:text-9xl animate-bounce">📦</div>
+            <div class="text-8xl md:text-9xl animate-bounce">
+                📦
+            </div>
 
-            <h2 class="text-2xl md:text-3xl font-black text-amber-900">
+            <h2 id="treasure-challenge-title" class="text-2xl md:text-3xl font-black text-amber-900">
                 Pilih kunci suku kata yang betul untuk buka peti sebelum ke Istana!
             </h2>
 
             <p id="treasure-challenge-prompt" class="text-xl font-extrabold text-amber-800">
-                Kunci: Suku kata untuk perkataan "TOPI" ialah?
+                Kunci: Suku kata untuk perkataan "ROTI" ialah?
             </p>
 
+            <!-- Treasure Key Options -->
             <div id="treasure-keys-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-lg">
-                <!-- Treasure keys injected dynamically -->
+                <!-- Injected dynamically -->
             </div>
         </section>
 
         <!-- SCREEN 7: SKRIN PENAMAT & SIJIL KEJAYAAN -->
         <section id="screen-victory" class="w-full bg-jungle-card rounded-3xl p-6 md:p-8 text-center flex flex-col items-center justify-center space-y-6 hidden">
-            <div class="text-6xl md:text-8xl animate-bounce">🏰</div>
+            <div class="text-6xl md:text-8xl animate-bounce">
+                🏰
+            </div>
 
             <h1 class="text-4xl md:text-6xl font-black text-amber-500 tracking-wide drop-shadow-md">
                 🎉 TAHNIAH! 🎉
@@ -467,7 +533,7 @@
                 </div>
             </div>
 
-            <!-- Dialogue -->
+            <!-- Dora & Boots Final Dialogue -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-lg no-print">
                 <div class="bg-pink-100 border-2 border-pink-400 rounded-2xl p-4 flex items-center gap-3">
                     <span class="text-5xl">👧</span>
@@ -485,10 +551,10 @@
                 </div>
             </div>
 
-            <!-- Action Buttons -->
+            <!-- Action Buttons for Certificate & Restart -->
             <div class="flex flex-col md:flex-row gap-3 w-full max-w-lg no-print pt-2">
                 <button onclick="printCertificate()" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-black text-xl py-4 px-4 rounded-2xl border-b-6 border-amber-700 btn-cartoon flex items-center justify-center gap-2">
-                    <span>🖨️</span> PRINT SIJIL
+                    <span>🖨️</span> SIMPAN / PRINT SIJIL
                 </button>
                 <button onclick="restartSameLevel()" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xl py-4 px-4 rounded-2xl border-b-6 border-emerald-700 btn-cartoon flex items-center justify-center gap-2">
                     <span>🔄</span> MAIN LAGI
@@ -501,13 +567,18 @@
 
     </main>
 
+    <!-- FOOTER -->
     <footer class="max-w-5xl mx-auto w-full text-center text-emerald-950/90 font-bold text-xs md:text-sm py-2 no-print">
         Game Pembelajaran Interaktif KVKV • Mesra MBPK (Pendidikan Khas)
     </footer>
 
     <script>
-        // Inline SVG visual for Table / Meja
-        const TABLE_SVG = `<svg class="w-24 h-24 md:w-32 md:h-32 inline-block" viewBox="0 0 100 100">
+        /* =================================================================
+           1. QUESTION BANKS WITH ACCURATE FIXED QUESTIONS & EMOJIS
+           ================================================================= */
+        
+        // Helper SVG HTML string for Table (Meja)
+        const TABLE_SVG_HTML = `<svg class="w-24 h-24 md:w-32 md:h-32 inline-block" viewBox="0 0 100 100">
             <rect x="10" y="35" width="80" height="15" rx="3" fill="#b45309" stroke="#78350f" stroke-width="3"/>
             <rect x="18" y="50" width="10" height="35" fill="#92400e"/>
             <rect x="72" y="50" width="10" height="35" fill="#92400e"/>
@@ -515,9 +586,7 @@
             <rect x="57" y="50" width="8" height="28" fill="#78350f"/>
         </svg>`;
 
-        /* --- 1. QUESTION BANKS (ALL FIXES INCLUDED) --- */
-        
-        // MUDAH (10 Questions)
+        // LEVEL 🟢 MUDAH (10 Questions - Basic KVKV + Visual Support)
         const QUESTIONS_MUDAH = [
             { id: 1, emoji: "🍞", prompt: "Apakah perkataan ini?", options: ["ROTI", "MATA", "SUSU"], correct: "ROTI", syllables: "RO + TI", spoken: "Roti. R, O, Ro. T, I, Ti. Roti." },
             { id: 2, emoji: "🎩", prompt: "Apakah perkataan ini?", options: ["TOPI", "BOLA", "BUKU"], correct: "TOPI", syllables: "TO + PI", spoken: "Topi. T, O, To. P, I, Pi. Topi." },
@@ -531,7 +600,7 @@
             { id: 10, emoji: "🎃", prompt: "Apakah perkataan ini?", options: ["LABU", "DUKU", "FERI"], correct: "LABU", syllables: "LA + BU", spoken: "Labu. L, A, La. B, U, Bu. Labu." }
         ];
 
-        // SEDERHANA (10 Questions - Suku Kata Completion with Duri, Duku, Meja)
+        // LEVEL 🟡 SEDERHANA (10 Questions - Complete Syllables with Fixed Emojis: Duri, Duku, Meja)
         const QUESTIONS_SEDERHANA = [
             { id: 1, emoji: "🌵", prompt: "Lengkapkan: DU + ___ = DURI", options: ["RI", "KU", "GI"], correct: "RI", syllables: "DU + RI = DURI", spoken: "Duri. D, U, Du. R, I, Ri. Duri." },
             { id: 2, emoji: "🦷", prompt: "Lengkapkan: GI + ___ = GIGI", options: ["GI", "KI", "JU"], correct: "GI", syllables: "GI + GI = GIGI", spoken: "Gigi. G, I, Gi. G, I, Gi. Gigi." },
@@ -539,15 +608,15 @@
             { id: 4, emoji: "🌶️", prompt: "Lengkapkan: CI + ___ = CILI", options: ["LI", "RI", "TA"], correct: "LI", syllables: "CI + LI = CILI", spoken: "Cili. C, I, Ci. L, I, Li. Cili." },
             { id: 5, emoji: "⛴️", prompt: "Lengkapkan: FE + ___ = FERI", options: ["RI", "LA", "TI"], correct: "RI", syllables: "FE + RI = FERI", spoken: "Feri. F, E, Fe. R, I, Ri. Feri." },
             { id: 6, emoji: "🚛", prompt: "Lengkapkan: LO + ___ = LORI", options: ["RI", "KI", "MA"], correct: "RI", syllables: "LO + RI = LORI", spoken: "Lori. L, O, Lo. R, I, Ri. Lori." },
-            { id: 7, isSvg: true, svgContent: TABLE_SVG, prompt: "Lengkapkan: ME + ___ = MEJA", options: ["JA", "TA", "KU"], correct: "JA", syllables: "ME + JA = MEJA", spoken: "Meja. M, E, Me. J, A, Ja. Meja." },
+            { id: 7, isSvg: true, svgContent: TABLE_SVG_HTML, prompt: "Lengkapkan: ME + ___ = MEJA", options: ["JA", "TA", "KU"], correct: "JA", syllables: "ME + JA = MEJA", spoken: "Meja. M, E, Me. J, A, Ja. Meja." },
             { id: 8, emoji: "🐒", prompt: "Lengkapkan: KE + ___ = KERA", options: ["RA", "LA", "BA"], correct: "RA", syllables: "KE + RA = KERA", spoken: "Kera. K, E, Ke. R, A, Ra. Kera." },
             { id: 9, emoji: "🎲", prompt: "Lengkapkan: DA + ___ = DADU", options: ["DU", "GI", "KU"], correct: "DU", syllables: "DA + DU = DADU", spoken: "Dadu. D, A, Da. D, U, Du. Dadu." },
             { id: 10, emoji: "🍲", prompt: "Lengkapkan: SO + ___ = SOTO", options: ["TO", "RO", "BO"], correct: "TO", syllables: "SO + TO = SOTO", spoken: "Soto. S, O, So. T, O, To. Soto." }
         ];
 
-        // SUSAH (10 Questions - Corrected Phrasing & Visuals)
+        // LEVEL 🔴 SUSAH (10 Questions - Fixed Phrasing: Meja, Rusa lari di hutan, bina rumah guna batu bata, Dora menaiki feri)
         const QUESTIONS_SUSAH = [
-            { id: 1, isSvg: true, svgContent: TABLE_SVG, prompt: "Pilih perkataan yang betul bagi gambar meja:", options: ["MEJA", "BATA", "KOTA"], correct: "MEJA", syllables: "ME + JA = MEJA", spoken: "Ini meja kayu." },
+            { id: 1, isSvg: true, svgContent: TABLE_SVG_HTML, prompt: "Pilih perkataan yang betul bagi gambar meja:", options: ["MEJA", "BATA", "KOTA"], correct: "MEJA", syllables: "ME + JA = MEJA", spoken: "Ini meja kayu." },
             { id: 2, emoji: "🦌", prompt: "Lengkapkan ayat: ___ lari di hutan.", options: ["RUSA", "DADU", "CILI"], correct: "RUSA", syllables: "RUSA LARI DI HUTAN", spoken: "Rusa lari di hutan." },
             { id: 3, emoji: "🧱", prompt: "Lengkapkan ayat: Kita bina rumah guna batu ___.", options: ["BATA", "LORI", "SUSU"], correct: "BATA", syllables: "BINA RUMAH GUNA BATU BATA", spoken: "Bina rumah guna batu bata." },
             { id: 4, emoji: "🥄", prompt: "Lengkapkan ayat: Makan nasi guna ___.", options: ["SUDU", "TOPI", "KERA"], correct: "SUDU", syllables: "SU + DU = SUDU", spoken: "Makan nasi guna sudu." },
@@ -559,6 +628,7 @@
             { id: 10, emoji: "👵", prompt: "Lengkapkan ayat: ___ masak nasi goreng.", options: ["MAMA", "DUKU", "CILI"], correct: "MAMA", syllables: "MA + MA = MAMA", spoken: "Mama masak nasi goreng." }
         ];
 
+        // Map Node Position Percentage Mapping
         const MAP_POSITIONS_10 = [
             { left: "5%", bottom: "20%" },
             { left: "15%", bottom: "45%" },
@@ -572,12 +642,15 @@
             { left: "92%", bottom: "65%" }
         ];
 
+        // Map Node Names
         const STOP_NAMES = [
             "1. Rumah 🏠", "2. Hutan 🌳", "3. Sungai 🌊", "4. Jambatan 🌉", "5. Pokok Besar 🌲",
             "6. Bukit Ceria ⛰️", "7. Gua Pelangi 🌈", "8. Taman Bunga 🌸", "9. Air Terjun 💦", "10. Istana 🏰"
         ];
 
-        /* --- 2. GAME STATE --- */
+        /* =================================================================
+           2. GLOBAL GAME STATE VARIABLES
+           ================================================================= */
         let studentName = "Pengembara Dora";
         let studentClass = "PPKI KVKV";
         let currentDifficulty = "MUDAH";
@@ -587,7 +660,9 @@
         let hasAnsweredCurrentCorrectly = false;
         let swiperTapCount = 3;
 
-        /* --- 3. WEB AUDIO SYNTH --- */
+        /* =================================================================
+           3. AUDIO SYNTHESIZER (Web Audio API)
+           ================================================================= */
         let audioCtx = null;
 
         function initAudioContext() {
@@ -653,7 +728,9 @@
             } catch (e) {}
         }
 
-        /* --- 4. SPEECH SYNTHESIS --- */
+        /* =================================================================
+           4. SPEECH SYNTHESIS (BM Voice Reader)
+           ================================================================= */
         function speakText(text) {
             if (!speechEnabled) return;
             if ('speechSynthesis' in window) {
@@ -680,7 +757,9 @@
             }
         }
 
-        /* --- 5. NAVIGATION LOGIC --- */
+        /* =================================================================
+           5. SCREEN NAVIGATION & SELECTION LOGIC
+           ================================================================= */
         function showScreen(screenId) {
             const screens = [
                 'screen-profile', 'screen-map', 'screen-question',
@@ -718,12 +797,14 @@
         function startAdventure() {
             playSoundClick();
 
+            // Read inputs
             const inputName = document.getElementById('input-student-name').value.trim();
             const inputClass = document.getElementById('input-student-class').value.trim();
 
             if (inputName) studentName = inputName;
             if (inputClass) studentClass = inputClass;
 
+            // Update Header Nav
             document.getElementById('nav-student-name').innerText = studentName;
             document.getElementById('nav-student-class').innerText = studentClass;
 
@@ -751,11 +832,13 @@
         }
 
         function updateMapVisuals() {
+            // Dora avatar position update
             const doraMarker = document.getElementById('dora-map-marker');
             const targetPos = MAP_POSITIONS_10[currentQuestionIdx];
             doraMarker.style.left = targetPos.left;
             doraMarker.style.bottom = targetPos.bottom;
 
+            // Unlocked map nodes status
             for (let i = 0; i < 10; i++) {
                 const node = document.getElementById(`stop-node-${i}`);
                 if (i <= currentQuestionIdx) {
@@ -767,6 +850,7 @@
                 }
             }
 
+            // Header status update
             const stopTitle = STOP_NAMES[currentQuestionIdx];
             document.getElementById('map-status-title').innerText = `Dora di ${stopTitle}`;
             document.getElementById('btn-continue-question').innerText = `➡️ SOALAN ${currentQuestionIdx + 1}: ${stopTitle.toUpperCase()}`;
@@ -775,6 +859,7 @@
         function goToCurrentQuestion() {
             playSoundClick();
 
+            // Intercept with LEVEL-SPECIFIC Special Challenges between stops
             if (currentQuestionIdx === 3 && swiperTapCount > 0) {
                 showSwiperChallengeForLevel();
                 return;
@@ -792,7 +877,9 @@
             showScreen('screen-question');
         }
 
-        /* --- 6. QUESTION ENGINE --- */
+        /* =================================================================
+           6. QUESTION LOGIC & MBPK ENCOURAGING FEEDBACK (NO "SALAH")
+           ================================================================= */
         function loadQuestionUI() {
             const bank = getCurrentQuestionBank();
             const q = bank[currentQuestionIdx];
@@ -809,9 +896,11 @@
 
             document.getElementById('q-prompt').innerText = q.prompt;
 
+            // Hide feedback & continue button
             document.getElementById('feedback-box').classList.add('hidden');
             document.getElementById('btn-next-question').classList.add('hidden');
 
+            // Render buttons
             const container = document.getElementById('options-container');
             container.innerHTML = '';
 
@@ -851,6 +940,7 @@
             feedbackBox.classList.remove('hidden');
 
             if (selectedOption === q.correct) {
+                // Correct Answer
                 hasAnsweredCurrentCorrectly = true;
                 playSoundSuccess();
 
@@ -865,6 +955,7 @@
 
                 document.getElementById('btn-next-question').classList.remove('hidden');
 
+                // Highlight correct button
                 const optionBtns = document.getElementById('options-container').getElementsByTagName('button');
                 for (let b of optionBtns) {
                     if (b.innerText === q.correct) {
@@ -877,6 +968,7 @@
                 speakText(`🎉 Hebat! Betul! ${q.spoken}`);
 
             } else {
+                // Incorrect (Encouraging feedback - NO "SALAH")
                 playSoundTryAgain();
 
                 buttonEl.classList.add('animate-shake');
@@ -910,7 +1002,11 @@
             }
         }
 
-        /* --- 7. LEVEL-SPECIFIC CHALLENGES --- */
+        /* =================================================================
+           7. 3 UNIQUE CHALLENGES FOR EACH DIFFICULTY LEVEL
+           ================================================================= */
+        
+        // --- CHALLENGE 1: SWIPER TAP DEFENSE ---
         function showSwiperChallengeForLevel() {
             showScreen('screen-challenge-swiper');
 
@@ -954,6 +1050,7 @@
             }
         }
 
+        // --- CHALLENGE 2: RIVER STONES ---
         function showRiverChallengeForLevel() {
             showScreen('screen-challenge-river');
             const container = document.getElementById('river-stones-container');
@@ -1011,6 +1108,7 @@
             speakText("Pilih batu yang betul untuk Dora seberang sungai!");
         }
 
+        // --- CHALLENGE 3: TREASURE CHEST KEYS ---
         function showTreasureChallengeForLevel() {
             showScreen('screen-challenge-treasure');
             const container = document.getElementById('treasure-keys-container');
@@ -1066,19 +1164,24 @@
             speakText(`${promptText.innerText}`);
         }
 
-        /* --- 8. VICTORY & CERTIFICATE --- */
+        /* =================================================================
+           8. VICTORY & PRINTABLE CERTIFICATE GENERATOR
+           ================================================================= */
         function showVictoryScreen() {
             showScreen('screen-victory');
             playSoundSuccess();
 
+            // Fill Certificate Data
             document.getElementById('cert-student-name').innerText = studentName;
             document.getElementById('cert-student-class').innerText = `Kelas: ${studentClass}`;
             document.getElementById('cert-level-name').innerText = `PERINGKAT: ${currentDifficulty}`;
 
+            // Date
             const today = new Date();
             const dateStr = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
             document.getElementById('cert-date').innerText = `Tarikh: ${dateStr}`;
 
+            // Stars
             const certStarsRow = document.getElementById('cert-stars-row');
             certStarsRow.innerHTML = '';
             for (let i = 0; i < scoreStars; i++) {
@@ -1109,6 +1212,7 @@
             speakText("Pilih nama dan peringkat baharu.");
         }
 
+        /* Initialize App on Load */
         window.onload = function() {
             selectDifficulty('MUDAH');
             showScreen('screen-profile');
